@@ -22,18 +22,13 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 20
-                  cache: npm
 
-            - name: Cache Prettier
+            - name: Cache Prettier global installation
               uses: actions/cache@v4
               id: prettier-cache
               with:
-                  path: |
-                      ~/.npm
-                      /usr/local/lib/node_modules
-                  key: ${{ runner.os }}-prettier-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-prettier-
+                  path: /usr/local/lib/node_modules
+                  key: ${{ runner.os }}-prettier-global
 
             - name: Install Prettier
               run: npm install --global prettier
