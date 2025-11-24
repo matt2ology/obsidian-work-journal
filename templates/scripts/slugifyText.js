@@ -80,7 +80,7 @@ function slugifyText(text) {
     .replace(/^-+/, "") // Trim leading hyphens
     .replace(/-+$/, "") // Trim trailing hyphens
     .replace(/\.+/g, ".") // Consolidate multiple periods into a single period
-    .substring(0, 200); // Limit length to 200 characters (55 characters shorter of the common file system limit)
+    .substring(0, 255); // Limit length to 255 characters (common file system limit)
 }
 
 // Function to convert slugified text to human-readable display name (Capitalized words)
