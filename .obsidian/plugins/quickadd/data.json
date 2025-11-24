@@ -1,0 +1,420 @@
+{
+  "choices": [
+    {
+      "id": "6e22edd7-df8f-4556-a0d2-2ebb850aecee",
+      "name": "1:1-manager-update",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "1:1-manager-update",
+        "id": "a0493198-16ea-4bf6-a300-f9637ea91091",
+        "commands": [
+          {
+            "name": "previousWeekGenerator",
+            "type": "UserScript",
+            "id": "20ea02af-40fb-40dd-a4c5-39491d574b87",
+            "path": "templates/scripts/previousWeekGenerator.js",
+            "settings": {}
+          },
+          {
+            "name": "Add Previous Week's Update",
+            "type": "NestedChoice",
+            "id": "fc578c31-1d4b-4e5e-b575-5e84a5ee2356",
+            "choice": {
+              "id": "b36e08bc-e489-4d04-9a4d-08e1ca055b90",
+              "name": "Add Previous Week's Update",
+              "type": "Capture",
+              "command": false,
+              "appendLink": false,
+              "captureTo": "meetings/{{date:gggg-[w]WW-MM-DD-ddd}}-1-1-manager",
+              "captureToActiveFile": false,
+              "activeFileWritePosition": "cursor",
+              "createFileIfItDoesntExist": {
+                "enabled": true,
+                "createWithTemplate": true,
+                "template": "templates/1-on-1-manager.md"
+              },
+              "format": {
+                "enabled": true,
+                "format": "## Last week: {{VALUE:previousWeek}}\n\n![[{{VALUE:previousWeek}}#Important Dates and Reminders]]\n\n![[{{VALUE:previousWeek}}#My Current Focus and Priorities]]\n\n![[{{VALUE:previousWeek}}#Blockers & Challenges / Support Needed]]\n\n![[{{VALUE:previousWeek}}#Accomplishments]]\n"
+              },
+              "insertAfter": {
+                "enabled": false,
+                "after": "",
+                "insertAtEnd": true,
+                "considerSubsections": false,
+                "createIfNotFound": true,
+                "createIfNotFoundLocation": "bottom"
+              },
+              "newLineCapture": {
+                "enabled": false,
+                "direction": "below"
+              },
+              "prepend": true,
+              "task": false,
+              "openFile": true,
+              "fileOpening": {
+                "location": "tab",
+                "direction": "vertical",
+                "mode": "default",
+                "focus": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "428e6573-b4af-46b3-917d-5a3780bc68bd",
+      "name": "scheduled-meeting",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "scheduled-meeting",
+        "id": "0ae4991f-3468-462a-bd7e-926ed646dd1f",
+        "commands": [
+          {
+            "name": "slugifyText",
+            "type": "UserScript",
+            "id": "2f9c14c9-44a0-41a7-8622-97c27a828ed2",
+            "path": "templates/scripts/slugifyText.js",
+            "settings": {}
+          },
+          {
+            "name": "scheduled-meeting",
+            "type": "NestedChoice",
+            "id": "f8fc0340-873b-4433-aef9-3f77601dc707",
+            "choice": {
+              "id": "62597323-a620-4005-a0bf-c43f3d7c3930",
+              "name": "scheduled-meeting",
+              "type": "Template",
+              "command": false,
+              "templatePath": "templates/scheduled-meeting.md",
+              "fileNameFormat": {
+                "enabled": true,
+                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-{{VALUE:slugifiedTitle}}"
+              },
+              "folder": {
+                "enabled": true,
+                "folders": [
+                  "meetings"
+                ],
+                "chooseWhenCreatingNote": false,
+                "createInSameFolderAsActiveFile": false,
+                "chooseFromSubfolders": false
+              },
+              "appendLink": false,
+              "openFile": true,
+              "fileOpening": {
+                "location": "reuse",
+                "direction": "vertical",
+                "mode": "default",
+                "focus": true
+              },
+              "fileExistsMode": "Nothing",
+              "setFileExistsBehavior": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "68dcf4fa-dc50-4921-817b-9db3d5320135",
+      "name": "1:1-peer-quick-sync",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "1:1-peer-quick-sync",
+        "id": "002acc8b-05ef-49cd-82ee-e83da0aeebae",
+        "commands": [
+          {
+            "name": "normalizeName",
+            "type": "UserScript",
+            "id": "3bde9780-2742-4aa8-a1d5-1c0e76b3ec9a",
+            "path": "templates/scripts/normalizeName.js",
+            "settings": {}
+          },
+          {
+            "name": "1-on-1-peer-quick-sync",
+            "type": "NestedChoice",
+            "id": "217207ed-eed8-4c9b-81b7-a599efb06638",
+            "choice": {
+              "id": "62597323-a620-4005-a0bf-c43f3d7c3930",
+              "name": "1-on-1-peer-quick-sync",
+              "type": "Template",
+              "command": false,
+              "templatePath": "templates/1-on-1-peer-quick-sync.md",
+              "fileNameFormat": {
+                "enabled": true,
+                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-1-1-sync-{{VALUE:sirNameSlug}}"
+              },
+              "folder": {
+                "enabled": true,
+                "folders": [
+                  "meetings"
+                ],
+                "chooseWhenCreatingNote": false,
+                "createInSameFolderAsActiveFile": false,
+                "chooseFromSubfolders": false
+              },
+              "appendLink": false,
+              "openFile": true,
+              "fileOpening": {
+                "location": "reuse",
+                "direction": "vertical",
+                "mode": "default",
+                "focus": true
+              },
+              "fileExistsMode": "Nothing",
+              "setFileExistsBehavior": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "18462ddf-4c2f-4c8f-b15d-acfc8588c42d",
+      "name": "training",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "training",
+        "id": "1d09561c-1654-4a9b-9a5e-483fb1537e29",
+        "commands": [
+          {
+            "name": "slugifyText",
+            "type": "UserScript",
+            "id": "975c91af-c179-4ad9-bca4-6a9abde52349",
+            "path": "templates/scripts/slugifyText.js",
+            "settings": {}
+          },
+          {
+            "name": "training",
+            "type": "NestedChoice",
+            "id": "efb5f943-3053-4352-a498-e357e96126a6",
+            "choice": {
+              "id": "62597323-a620-4005-a0bf-c43f3d7c3930",
+              "name": "training",
+              "type": "Template",
+              "command": false,
+              "templatePath": "templates/training.md",
+              "fileNameFormat": {
+                "enabled": true,
+                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-{{VALUE:slugifiedTitle}}"
+              },
+              "folder": {
+                "enabled": true,
+                "folders": [
+                  "meetings"
+                ],
+                "chooseWhenCreatingNote": false,
+                "createInSameFolderAsActiveFile": false,
+                "chooseFromSubfolders": false
+              },
+              "appendLink": false,
+              "openFile": true,
+              "fileOpening": {
+                "location": "reuse",
+                "direction": "vertical",
+                "mode": "default",
+                "focus": true
+              },
+              "fileExistsMode": "Nothing",
+              "setFileExistsBehavior": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "9c5bdff2-f8d2-4621-88ba-1c00aecbac54",
+      "name": "people",
+      "type": "Macro",
+      "command": true,
+      "runOnStartup": false,
+      "macro": {
+        "name": "people",
+        "id": "4a42f89e-cb12-4f80-940d-198faaf04c6e",
+        "commands": [
+          {
+            "name": "normalizeName",
+            "type": "UserScript",
+            "id": "03b9cdbf-01e3-4bdd-ae5c-e4c16d638216",
+            "path": "templates/scripts/normalizeName.js",
+            "settings": {}
+          },
+          {
+            "name": "Untitled Template Choice",
+            "type": "NestedChoice",
+            "id": "da359154-28e1-452f-bfd2-1e1d6f6eaf7f",
+            "choice": {
+              "id": "62597323-a620-4005-a0bf-c43f3d7c3930",
+              "name": "Untitled Template Choice",
+              "type": "Template",
+              "command": false,
+              "templatePath": "templates/people.md",
+              "fileNameFormat": {
+                "enabled": true,
+                "format": "{{VALUE:sirNameSlug}}"
+              },
+              "folder": {
+                "enabled": true,
+                "folders": [
+                  "contacts"
+                ],
+                "chooseWhenCreatingNote": false,
+                "createInSameFolderAsActiveFile": false,
+                "chooseFromSubfolders": false
+              },
+              "appendLink": false,
+              "openFile": true,
+              "fileOpening": {
+                "location": "reuse",
+                "direction": "vertical",
+                "mode": "default",
+                "focus": true
+              },
+              "fileExistsMode": "Nothing",
+              "setFileExistsBehavior": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "d9888eec-209a-4065-a6e2-3ba812f43cfd",
+      "name": "weekly",
+      "type": "Template",
+      "command": true,
+      "templatePath": "templates/weekly.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{DATE:gggg-[w]WW}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "periodic"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFile": true,
+      "fileOpening": {
+        "location": "reuse",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      },
+      "fileExistsMode": "Nothing",
+      "setFileExistsBehavior": true
+    }
+  ],
+  "inputPrompt": "single-line",
+  "devMode": false,
+  "templateFolderPath": "templates",
+  "announceUpdates": "all",
+  "version": "2.8.0",
+  "globalVariables": {},
+  "onePageInputEnabled": false,
+  "disableOnlineFeatures": true,
+  "enableRibbonIcon": true,
+  "showCaptureNotification": true,
+  "showInputCancellationNotification": true,
+  "enableTemplatePropertyTypes": false,
+  "ai": {
+    "defaultModel": "Ask me",
+    "defaultSystemPrompt": "As an AI assistant within Obsidian, your primary goal is to help users manage their ideas and knowledge more effectively. Format your responses using Markdown syntax. Please use the [[Obsidian]] link format. You can write aliases for the links by writing [[Obsidian|the alias after the pipe symbol]]. To use mathematical notation, use LaTeX syntax. LaTeX syntax for larger equations should be on separate lines, surrounded with double dollar signs ($$). You can also inline math expressions by wrapping it in $ symbols. For example, use $$w_{ij}^{\text{new}}:=w_{ij}^{\text{current}}+etacdotdelta_jcdot x_{ij}$$ on a separate line, but you can write \"($eta$ = learning rate, $delta_j$ = error term, $x_{ij}$ = input)\" inline.",
+    "promptTemplatesFolderPath": "",
+    "showAssistant": true,
+    "providers": [
+      {
+        "name": "OpenAI",
+        "endpoint": "https://api.openai.com/v1",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "text-davinci-003",
+            "maxTokens": 4096
+          },
+          {
+            "name": "gpt-3.5-turbo",
+            "maxTokens": 4096
+          },
+          {
+            "name": "gpt-3.5-turbo-16k",
+            "maxTokens": 16384
+          },
+          {
+            "name": "gpt-3.5-turbo-1106",
+            "maxTokens": 16385
+          },
+          {
+            "name": "gpt-4",
+            "maxTokens": 8192
+          },
+          {
+            "name": "gpt-4-32k",
+            "maxTokens": 32768
+          },
+          {
+            "name": "gpt-4-1106-preview",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4-turbo",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o-mini",
+            "maxTokens": 128000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      },
+      {
+        "name": "Gemini",
+        "endpoint": "https://generativelanguage.googleapis.com",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "gemini-1.5-pro",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash-8b",
+            "maxTokens": 1000000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      }
+    ]
+  },
+  "migrations": {
+    "migrateToMacroIDFromEmbeddedMacro": true,
+    "useQuickAddTemplateFolder": true,
+    "incrementFileNameSettingMoveToDefaultBehavior": true,
+    "mutualExclusionInsertAfterAndWriteToBottomOfFile": true,
+    "setVersionAfterUpdateModalRelease": true,
+    "addDefaultAIProviders": true,
+    "removeMacroIndirection": true,
+    "migrateFileOpeningSettings": true,
+    "setProviderModelDiscoveryMode": true
+  }
+}
