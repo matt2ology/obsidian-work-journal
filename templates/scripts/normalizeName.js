@@ -77,4 +77,3 @@ module.exports = async (params) => {
 
   return { sirName, sirNameSlug, personalName, personalNameSlug };
 };
-a
