@@ -4,7 +4,9 @@ module.exports = async (params) => {
   // Prompt user
   let input;
   try {
-    input = await qa.inputPrompt("Enter name (supports: Smith, John / John Smith / Alice):");
+    input = await qa.inputPrompt(
+      "Enter name (supports: Smith, John / John Smith / Alice):"
+    );
   } catch (e) {
     abort("Name input canceled");
     return;
@@ -47,17 +49,21 @@ module.exports = async (params) => {
     if (!str) return "";
     return str
       .toLowerCase()
-      .replace(/['’]/g, "")           // Remove apostrophes
-      .replace(/[^a-z0-9]+/g, "-")    // Replace non-alphanumeric with hyphen
-      .replace(/^-+|-+$/g, "");       // Remove leading/trailing hyphens
+      .replace(/['’]/g, "") // Remove apostrophes
+      .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric with hyphen
+      .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
   };
 
   // Build variables
   const sirName = last ? `${last}, ${first}` : first;
-  const sirNameSlug = last ? `${makeSlug(last)}-${makeSlug(first)}` : makeSlug(first);
+  const sirNameSlug = last
+    ? `${makeSlug(last)}-${makeSlug(first)}`
+    : makeSlug(first);
 
   const personalName = last ? `${first} ${last}` : first;
-  const personalNameSlug = last ? `${makeSlug(first)}-${makeSlug(last)}` : makeSlug(first);
+  const personalNameSlug = last
+    ? `${makeSlug(first)}-${makeSlug(last)}`
+    : makeSlug(first);
 
   // Store in QuickAdd variables
   variables.sirName = sirName;
