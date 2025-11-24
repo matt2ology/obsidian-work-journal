@@ -146,7 +146,7 @@
               "name": "1-on-1-unscheduled-meeting-quick-sync",
               "type": "Template",
               "command": false,
-              "templatePath": "templates/1-on-1-peer-quick-sync.md",
+              "templatePath": "templates/1-on-1-quick-sync.md",
               "fileNameFormat": {
                 "enabled": true,
                 "format": "{{DATE:gggg-[w]WW-MM-DD}}-1-on-1-sync-{{VALUE:sirNameSlug}}"
