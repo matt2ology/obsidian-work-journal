@@ -6,7 +6,7 @@ date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
 day_of_week: "{{date:E}}"
 note_type: meeting
-meeting_type: 1-1-peer
+meeting_type: 1-1-sync
 Participants:
     - "{{VALUE:sirNameSlug}}"
 topics:
