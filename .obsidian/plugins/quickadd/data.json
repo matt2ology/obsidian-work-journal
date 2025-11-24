@@ -122,12 +122,12 @@
     },
     {
       "id": "68dcf4fa-dc50-4921-817b-9db3d5320135",
-      "name": "1:1-unscheduled-meeting-quick-sync",
+      "name": "1:1-quick-sync",
       "type": "Macro",
       "command": true,
       "runOnStartup": false,
       "macro": {
-        "name": "1:1-unscheduled-meeting-quick-sync",
+        "name": "1:1-quick-sync",
         "id": "002acc8b-05ef-49cd-82ee-e83da0aeebae",
         "commands": [
           {
@@ -146,7 +146,7 @@
               "name": "1-on-1-unscheduled-meeting-quick-sync",
               "type": "Template",
               "command": false,
-              "templatePath": "templates/1-on-1-quick-sync.md",
+              "templatePath": "templates/1-on-1-quick-sync-unscheduled-meeting.md",
               "fileNameFormat": {
                 "enabled": true,
                 "format": "{{DATE:gggg-[w]WW-MM-DD}}-1-on-1-sync-{{VALUE:sirNameSlug}}"
