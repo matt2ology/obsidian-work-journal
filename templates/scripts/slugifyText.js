@@ -4,7 +4,7 @@ module.exports = async (params) => {
   // Prompt user
   let originalInput;
   try {
-    originalInput = await qa.inputPrompt("Enter meeting title:");
+    originalInput = await qa.inputPrompt("Enter meeting/training title:");
   } catch (e) {
     abort("Input canceled");
     return;
