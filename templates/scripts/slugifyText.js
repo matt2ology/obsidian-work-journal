@@ -1,7 +1,7 @@
 module.exports = async (params) => {
   const { quickAddApi: qa, variables, abort } = params;
 
-  // Prompt user
+  // Prompt user for input
   let originalInput;
   try {
     originalInput = await qa.inputPrompt("Enter meeting/training title:");
@@ -17,12 +17,26 @@ module.exports = async (params) => {
 
   const originalTitle = originalInput.trim();
 
-  // Normalize and slugify the input
-  let slugifiedTitle;
+  // Normalize the input
+  let normalizedTitle;
   try {
-    slugifiedTitle = normalizeAndSlugify(originalTitle);
+    normalizedTitle = normalizeText(originalTitle); // Store the normalized value
   } catch (error) {
     abort(`Error processing title: ${error.message}`);
+    return;
+  }
+
+  if (!normalizedTitle) {
+    abort("Could not normalize the title");
+    return;
+  }
+
+  // Slugify the normalized title
+  let slugifiedTitle;
+  try {
+    slugifiedTitle = slugifyText(normalizedTitle); // Slugify the normalized text
+  } catch (error) {
+    abort(`Error processing slug: ${error.message}`);
     return;
   }
 
@@ -36,43 +50,43 @@ module.exports = async (params) => {
   variables.slugifiedTitle = slugifiedTitle;
   variables.fileName = slugifiedTitle;
   variables.normalizedTitle = toDisplayName(slugifiedTitle);
-  variables.camelCase = toCamelCase(originalTitle);
+
+  // Store the normalized text in the variables for future use
+  variables.normalizedText = normalizedTitle;
 
   // Show success notification with both values
   new Notice(`Original: "${originalTitle}" → Slug: "${slugifiedTitle}"`);
   return slugifiedTitle;
 };
 
-function normalizeAndSlugify(text) {
+// Step 1: Normalize the text (lowercase, remove diacritics, remove illegal characters)
+function normalizeText(text) {
   return text
     .toString()
-    .toLowerCase()
-    .normalize("NFD") // Normalize unicode
-    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
-    .replace(/&/g, "-and-") // Replace ampersand
-    .replace(/[<>:"|?*\\/]/g, "-") // Remove illegal file name characters
+    .toLowerCase() // Convert to lowercase
+    .normalize("NFD") // Normalize Unicode to decomposed form (NFD)
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics (accents and other marks)
+    .replace(/[<>:"|?*\\/]/g, "") // Remove illegal characters for filenames
     .replace(/^\./, "") // Remove leading dot (hidden files)
     .replace(/\.$/g, "") // Remove trailing dot
     .replace(/^(con|prn|aux|nul|com[0-9]|lpt[0-9])$/i, "-$1-") // Avoid reserved names
-    .replace(/[^\w\s.-]/g, "") // Remove other special characters
-    .replace(/[\s_-]+/g, "-") // Replace spaces, underscores, hyphens with single hyphen
-    .replace(/^-+/, "") // Trim hyphens from start
-    .replace(/-+$/, "") // Trim hyphens from end
-    .replace(/\.+/g, ".") // Consolidate multiple dots
-    .substring(0, 255); // Limit length for file systems
+    .replace(/[^\w\s.-]/g, ""); // Remove other special characters
 }
 
+// Step 2: Slugify the text (replace spaces, underscores, and hyphens with a single hyphen)
+function slugifyText(text) {
+  return text
+    .replace(/[\s_-]+/g, "-") // Replace spaces, underscores, and hyphens with a single hyphen
+    .replace(/^-+/, "") // Trim leading hyphens
+    .replace(/-+$/, "") // Trim trailing hyphens
+    .replace(/\.+/g, ".") // Consolidate multiple periods into a single period
+    .substring(0, 255); // Limit length to 255 characters (common file system limit)
+}
+
+// Function to convert slugified text to human-readable display name (Capitalized words)
 function toDisplayName(slug) {
   return slug
     .split("-")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-}
-
-function toCamelCase(text) {
-  return text
-    .replace(/[^a-zA-Z0-9]/g, " ")
-    .replace(/\s(.)/g, ($1) => $1.toUpperCase())
-    .replace(/\s/g, "")
-    .replace(/^(.)/, ($1) => $1.toLowerCase());
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1)) // Capitalize each word
+    .join(" "); // Join the parts with a space
 }
