@@ -27,7 +27,7 @@
               "type": "Capture",
               "command": false,
               "appendLink": false,
-              "captureTo": "meetings/{{date:gggg-[w]WW-MM-DD-ddd}}-1-1-manager",
+              "captureTo": "meetings/{{date:gggg-[w]WW-MM-DD}}-1-on-1-manager",
               "captureToActiveFile": false,
               "activeFileWritePosition": "cursor",
               "createFileIfItDoesntExist": {
@@ -94,7 +94,7 @@
               "templatePath": "templates/scheduled-meeting.md",
               "fileNameFormat": {
                 "enabled": true,
-                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-{{VALUE:slugifiedTitle}}"
+                "format": "{{DATE:gggg-[w]WW-MM-DD}}-{{VALUE:slugifiedTitle}}"
               },
               "folder": {
                 "enabled": true,
@@ -122,12 +122,12 @@
     },
     {
       "id": "68dcf4fa-dc50-4921-817b-9db3d5320135",
-      "name": "1:1-peer-quick-sync",
+      "name": "1:1-unscheduled-meeting-quick-sync",
       "type": "Macro",
       "command": true,
       "runOnStartup": false,
       "macro": {
-        "name": "1:1-peer-quick-sync",
+        "name": "1:1-unscheduled-meeting-quick-sync",
         "id": "002acc8b-05ef-49cd-82ee-e83da0aeebae",
         "commands": [
           {
@@ -138,18 +138,18 @@
             "settings": {}
           },
           {
-            "name": "1-on-1-peer-quick-sync",
+            "name": "1-on-1-unscheduled-meeting-quick-sync",
             "type": "NestedChoice",
             "id": "217207ed-eed8-4c9b-81b7-a599efb06638",
             "choice": {
               "id": "62597323-a620-4005-a0bf-c43f3d7c3930",
-              "name": "1-on-1-peer-quick-sync",
+              "name": "1-on-1-unscheduled-meeting-quick-sync",
               "type": "Template",
               "command": false,
               "templatePath": "templates/1-on-1-peer-quick-sync.md",
               "fileNameFormat": {
                 "enabled": true,
-                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-1-1-sync-{{VALUE:sirNameSlug}}"
+                "format": "{{DATE:gggg-[w]WW-MM-DD}}-1-on-1-sync-{{VALUE:sirNameSlug}}"
               },
               "folder": {
                 "enabled": true,
@@ -204,7 +204,7 @@
               "templatePath": "templates/training.md",
               "fileNameFormat": {
                 "enabled": true,
-                "format": "{{DATE:gggg-[w]WW-MM-DD-ddd}}-{{VALUE:slugifiedTitle}}"
+                "format": "{{DATE:gggg-[w]WW-MM-DD}}-{{VALUE:slugifiedTitle}}"
               },
               "folder": {
                 "enabled": true,
