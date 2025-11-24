@@ -1,3 +1,4 @@
 .obsidian/plugins/*/*.js
 .obsidian/plugins/*/*.css
 .obsidian/plugins/*/manifest.json
+.obsidian/workspace.json
