@@ -4,7 +4,7 @@
 
 ## Attribute and State System
 
-- Use **properties for structure** → fixed, stable, queryable.  
+- Use **properties for structure** → fixed, stable, queryable.
 - Use **tags for meaning** → fluid, interpretive, cross-cutting.
 
 ### Use properties

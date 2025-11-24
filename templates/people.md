@@ -1,7 +1,7 @@
 ---
 aliases:
-  - "{{VALUE:personalName}}"
-  - "{{VALUE:sirName}}"
+    - "{{VALUE:personalName}}"
+    - "{{VALUE:sirName}}"
 title: "{{VALUE:personalName}}"
 note_type: people
 date_met:
@@ -10,33 +10,40 @@ tags:
 
 ## Notes
 
-- 
+-
 
 ## How We Met
-- **Context:** 
-- **First Impression:** 
+
+- **Context:**
+- **First Impression:**
 
 ## About Them
-- **Interests / Hobbies:** 
-- **Personality Notes:** 
-- **Values / What Matters to Them:** 
+
+- **Interests / Hobbies:**
+- **Personality Notes:**
+- **Values / What Matters to Them:**
 
 ## Impressions
-- **Energy / Vibe:** 
-- **Communication Style:** 
-- **Comfort Level / Ease of Connection:** 
+
+- **Energy / Vibe:**
+- **Communication Style:**
+- **Comfort Level / Ease of Connection:**
 
 ## Friendship Potential
-### Shared Interests / Common Ground: 
+
+### Shared Interests / Common Ground:
+
 > [!info]
 > What do we naturally bond over?
 > Think hobbies, tastes (music, books, games, activities), life experiences, values, or even small quirky overlaps. Note things that feel easy or energizing to talk about.
 
-### Boundaries & Social Awareness: 
+### Boundaries & Social Awareness:
+
 > [!info]
 > **How well do they navigate space, cues, and personal comfort?**
 > Notice how respectful they were of personal boundaries and whether they seemed attuned to social signals—listening, pacing, not oversharing or pushing.
-### Reliability / Follow-Through: 
+
+### Reliability / Follow-Through:
 
 > [!info]
 > **Do they seem dependable and steady?**

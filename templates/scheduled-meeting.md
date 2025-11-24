@@ -1,6 +1,6 @@
 ---
 aliases:
-  - "{{date:YYYY-MM-DD}}-{{VALUE:slugifiedTitle}}"
+    - "{{date:YYYY-MM-DD}}-{{VALUE:slugifiedTitle}}"
 title: "{{VALUE:originalTitle}}"
 date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
@@ -11,10 +11,10 @@ Participants:
 topics:
 tags:
 ---
-#  Meeting Summary
+
+# Meeting Summary
 
 {{date:dddd, MMMM D, YYYY, h:mm A}} - {{date:[Work Week] WW.E}}
-
 
 ## Action Required
 

@@ -1,6 +1,6 @@
 ---
 aliases:
-  - "{{date:YY[W]WW}}"
+    - "{{date:YY[W]WW}}"
 title: Work Week {{date:WW.E}} - {{date:dddd, MMMM Do, YYYY}}
 date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
@@ -9,6 +9,7 @@ note_type: weekly
 topics:
 tags:
 ---
+
 ## Key observations from the week
 
 ## 1:1 manager_name/your_name - {{date: YY[WW]WW}} | Weekly Update
@@ -19,15 +20,15 @@ I’ve compiled a list updates for this week. Please find them below:
 
 ### Important Dates and Reminders
 
-*Meetings, trainings, days requested off*
+_Meetings, trainings, days requested off_
 
 -
 
 ### My Current Focus and Priorities
 
-*How would you adjust these priorities (if at all)*
+_How would you adjust these priorities (if at all)_
 
-1. 
+1.
 
 ### Blockers & Challenges / Support Needed
 
@@ -37,6 +38,6 @@ _Where I need help or guidance_
 
 ### Accomplishments
 
-*What got done*
+_What got done_
 
 -

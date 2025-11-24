@@ -1,6 +1,6 @@
 ---
 aliases:
-  - "{{date:YYYY-MM-DD}}"
+    - "{{date:YYYY-MM-DD}}"
 title: "{{date:YYYY-MM-DD}} - Daily Note and Summary"
 date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
@@ -8,6 +8,7 @@ day_of_week: "{{date:E}}"
 note_type: daily
 tags:
 ---
+
 ## Summary
 
 <!-- Reflect on the day - **End-of-day phrase:** “Shutdown complete”

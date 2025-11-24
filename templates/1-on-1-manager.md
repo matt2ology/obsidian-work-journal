@@ -1,6 +1,6 @@
 ---
 aliases:
-  - "{{date:YYYY-MM-DD}}-1-1-manager_name"
+    - "{{date:YYYY-MM-DD}}-1-1-manager_name"
 title: 1:1 with manager_name
 date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
@@ -8,10 +8,11 @@ day_of_week: "{{date:E}}"
 note_type: meeting
 meeting_type: 1-1-manager
 Participants:
-  - manager_name
+    - manager_name
 topics:
 tags:
 ---
+
 # Meeting Summary - 1:1 with manager_name
 
 {{date:dddd, MMMM D, YYYY, h:mm A}} - {{date:[Work Week] WW.E}}
@@ -28,7 +29,7 @@ Before our meeting later today, I’ve compiled a list of agenda items and updat
 
 ## Agenda/Questions
 
-1. 
+1.
 
 ![[{{date:gggg-[w]WW}}#Important Dates and Reminders]]
 
