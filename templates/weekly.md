@@ -12,9 +12,9 @@ tags:
 
 ## Key observations from the week
 
-## 1:1 manager_name/your_name - {{date: YY[WW]WW}} | Weekly Update
+## 1:1 manager_first_name/your_name - {{date: YY[WW]WW}} | Weekly Update
 
-Hi manager_name,
+Hi manager_first_name,
 
 I’ve compiled a list updates for this week. Please find them below:
 
