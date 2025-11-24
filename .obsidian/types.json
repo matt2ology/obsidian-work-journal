@@ -1,0 +1,13 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "date": "datetime",
+    "Participants": "multitext",
+    "time": "text",
+    "tasks": "multitext",
+    "date_met": "date",
+    "topics": "multitext"
+  }
+}

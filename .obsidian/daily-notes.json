@@ -1,0 +1,6 @@
+{
+  "format": "gggg-[w]WW-MM-DD-ddd",
+  "autorun": true,
+  "folder": "periodic",
+  "template": "templates/daily"
+}
