@@ -1,7 +1,7 @@
 ---
 aliases:
-    - "{{date:YYYY-MM-DD}}-{{VALUE:slugifiedTitle}}"
-title: Training - {{VALUE:originalTitle}}
+  - "{{date:YYYY-MM-DD}}-{{VALUE:slugifiedTitle}}"
+title: Training - {{VALUE:normalizedText}}
 date_and_time: "{{date:YYYY-MM-DD[T]HH:mm:ss}}"
 work_week: "{{date:[W]WW}}"
 day_of_week: "{{date:E}}"
